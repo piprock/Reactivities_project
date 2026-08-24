@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Frontend",
+      "type": "shell",
+      "command": "echo 'Starting Frontend...'",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "panel": "new",
+        "reveal": "always"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Start Backend",
+      "type": "shell",
+      "command": "dotnet run",
+      "options": {
+        "cwd": "${workspaceFolder}/Reactivities/API"
+      },
+      "presentation": {
+        "panel": "new",
+        "reveal": "always"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Open Back Localhost",
+      "type": "shell",
+      "command": "start https://localhost:5001",
+      "presentation": {
+        "reveal": "never",
+        "close": true
+      }
+    },
+    {
+      "label": "Interactive Terminal",
+      "type": "shell",
+      "command": "powershell -NoExit",
+      "presentation": {
+        "panel": "new",
+        "reveal": "always",
+        "focus": true,
+        "close": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Start Fullstack Environment",
+      "dependsOn": [
+        "Start Frontend",
+        "Start Backend",
+        "Interactive Terminal",
+        "Open Back Localhost"
+      ],
+      "dependsOrder": "parallel",
+      "problemMatcher": []
+    }
+  ]
+}
